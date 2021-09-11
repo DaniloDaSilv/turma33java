@@ -2,16 +2,15 @@ package entities;
 
 public class ContaEstudantil extends Conta {
 
-	// atributo
 	private double limiteEstudantil;
 
-	// construtor
+	// Construtor
 	public ContaEstudantil(int numero, String cpf, double limiteEstudantil) {
 		super(numero, cpf);
 		this.limiteEstudantil = limiteEstudantil;
 	}
 
-	// encapsulamento
+	// Encapsulamento
 	public double getLimiteEstudantil() {
 		return limiteEstudantil;
 	}
@@ -20,6 +19,15 @@ public class ContaEstudantil extends Conta {
 		this.limiteEstudantil = limiteEstudantil;
 	}
 
-	// metodos
+	// Metodo
+
+	public void usarEstudantil(double valor) {
+		if (valor <= limiteEstudantil) {
+			this.limiteEstudantil -= valor;
+			super.credito(valor);
+
+		}
+
+	}
 
 }
